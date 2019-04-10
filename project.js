@@ -1,5 +1,5 @@
 class Book {
-    constructor(title, author, isRead){
+    constructor(title, author, isRead) {
         this.title = title;
         this.author = author;
         this.isRead = isRead;
@@ -21,27 +21,27 @@ class Library {
 
     setStatus(title, author, isRead) {
         var isPresent;
-        this.books.forEach(function(book) {
+        this.books.forEach(function (book) {
             if (book.title === title && book.author === author) {
                 book.isRead = isRead;
                 isPresent = true;
-            } 
+            }
         });
-        if(!isPresent) {
+        if (!isPresent) {
             console.log("No " + title + " written by " + author + " is present in library")
         }
     }
 }
 
-class TestLibrary{
+class TestLibrary {
     static instance() {
-       var books = [new Book("Sound and Fury", "William Faulkner", true), new Book("Finnegan's Funeral", "James Joyce", false), new Book("1984", "William Orwell", false)];
-       return new Library(books);
+        var books = [new Book("Sound and Fury", "William Faulkner", true), new Book("Finnegan's Funeral", "James Joyce", false), new Book("1984", "William Orwell", false)];
+        return new Library(books);
     }
 }
 
 function myReadBooks(library) {
-    library.books.forEach(function(book) {
+    library.books.forEach(function (book) {
         if (book.isRead) {
             console.log("Already read " + book.fullName);
         } else {
